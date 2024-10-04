@@ -1,4 +1,4 @@
-package astramod.classes.blocks.production;
+package testmod.blocks.production;
 
 import mindustry.world.blocks.production.*;
 
