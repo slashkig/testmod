@@ -18,12 +18,13 @@ jobs:
       - name: Get mod name
         id: get_mod_name
         run: |
+          chmod +x gradlew
           modName=$(./gradlew printModName | grep "MOD_NAME" | cut -d '=' -f2)
           echo "mod_name=${modName}" >> $GITHUB_OUTPUT
       - name: Build mod artifact
         run: |
-          chmod +x gradlew
-          ./gradlew clean dex
+          ./gradlew clean jar
+          ./gradlew dex
       - name: Upload built mod artifact
         uses: actions/upload-artifact@v4
         with:
