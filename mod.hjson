@@ -2,7 +2,7 @@ name: "testmod"
 displayName: "Slashkig Test Mod"
 author: "Slashkig"
 description: "Test mod for Mindustry"
-version: "1.0"
+version: "1.1"
 main: "testmod.TestMod"
 minGameVersion: "146"
 dependencies: [ ]
