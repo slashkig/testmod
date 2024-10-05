@@ -142,7 +142,7 @@ configure(rootProject) {
 
 	tasks.register('dex', Jar) {
 		inputs.files tasks.jar
-		archiveFileName = "${modArtifact}-${modVersion + (Boolean.valueOf(alpha) ? '-alpha' : '')}.jar"
+		archiveFileName = "${modArtifact}.jar"
 
 		final def desktopJar = tasks.jar.archiveFile
 		final def dexJar = file("$temporaryDir/Dexed.jar")
