@@ -138,6 +138,10 @@ configure(rootProject) {
 			map.put('name', modName)
 			meta.withWriter { map.writeTo(it, Jval.Jformat.formatted) }
 		}
+
+		doLast {
+			logger.log(LogLevel.LIFECYCLE, 'JAR file built.')
+		}
 	}
 
 	tasks.register('dex', Jar) {
@@ -182,6 +186,10 @@ configure(rootProject) {
 			// Run `d8`.
 			logger.log(LogLevel.LIFECYCLE, 'Running `d8`.')
 			command.execute(null, layout.projectDirectory.asFile).waitForProcessOutput(System.out, System.err)
+		}
+
+		doLast {
+			logger.log(LogLevel.LIFECYCLE, 'DEX file built.')
 		}
 	}
 }
