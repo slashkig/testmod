@@ -153,8 +153,6 @@ configure(rootProject) {
 
 		from zipTree(desktopJar), zipTree(dexJar)
 		doFirst {
-			sleep(1000)
-
 			// Find Android SDK root.
 			def sdkRoot = file(
 				System.getenv('ANDROID_SDK_ROOT') ?: System.getenv('ANDROID_HOME') ?:
@@ -169,7 +167,7 @@ configure(rootProject) {
 
 			// Initialize a release build.
 			def input = desktopJar.get().asFile
-			def command = "$d8 --release --min-api $androidMinVersion --output \"$dexJar\" \"$input\""
+			def command = "$d8 --release --min-api $androidMinVersion --output $dexJar $input"
 
 			// Include all compile and runtime classpath.
 			(configurations.compileClasspath.asList() + configurations.runtimeClasspath.asList()).forEach {
