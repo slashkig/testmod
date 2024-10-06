@@ -167,7 +167,7 @@ configure(rootProject) {
 
 			// Initialize a release build.
 			def input = desktopJar.get().asFile
-			def command = "$d8 --release --min-api $androidMinVersion --output $dexJar $input"
+			def command = "$d8 --release --min-api $androidMinVersion --output ${OS.isWindows ? "\"" + dexJar + "\" \"" + input + "\"" : dexJar + " " + input}"
 
 			// Include all compile and runtime classpath.
 			(configurations.compileClasspath.asList() + configurations.runtimeClasspath.asList()).forEach {
@@ -189,7 +189,7 @@ configure(rootProject) {
 		}
 
 		doLast {
-			logger.log(LogLevel.LIFECYCLE, 'DEX file built.')
+			logger.log(LogLevel.LIFECYCLE, 'Dexed file built.')
 		}
 	}
 }
