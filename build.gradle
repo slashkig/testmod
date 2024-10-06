@@ -149,9 +149,6 @@ configure(rootProject) {
 
 		from zipTree(desktopJar), zipTree(dexJar)
 		doFirst {
-			println "Desktop JAR should be at: ${inputs.files.singleFile}"
-			println "Dex is looking for JAR at: ${temporaryDir}"
-			
 			// Find Android SDK root.
 			def sdkRoot = file(
 				System.getenv('ANDROID_SDK_ROOT') ?: System.getenv('ANDROID_HOME') ?:
