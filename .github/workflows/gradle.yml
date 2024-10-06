@@ -25,7 +25,6 @@ jobs:
       - name: Build mod artifact
         run: |
           ./gradlew clean dex
-          ls -la build/libs
       - name: Upload built mod artifact
         uses: actions/upload-artifact@v4
         with:
