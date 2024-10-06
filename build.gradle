@@ -153,6 +153,11 @@ configure(rootProject) {
 
 		from zipTree(desktopJar), zipTree(dexJar)
 		doFirst {
+			println "Test"
+			sleep(1000)
+			println "Desktop JAR exists: ${desktopJar.exists()}"
+			println "Looking for JAR at: ${desktopJar.absolutePath}"
+
 			// Find Android SDK root.
 			def sdkRoot = file(
 				System.getenv('ANDROID_SDK_ROOT') ?: System.getenv('ANDROID_HOME') ?:
